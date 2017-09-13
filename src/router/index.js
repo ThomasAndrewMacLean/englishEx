@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from '@/components/Hello';
+import Home from '@/components/Home';
+import SignIn from '@/components/SignIn';
+import UploadExcel from '@/components/UploadExcel';
+import AuthGuard from './auth-guard';
 
 Vue.use(Router);
 
@@ -8,8 +11,20 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello,
+      name: 'Home',
+      component: Home,
+      beforeEnter: AuthGuard,
+    },
+    {
+      path: '/SignIn',
+      name: 'SignIn',
+      component: SignIn,
+    },
+    {
+      path: '/UploadExcel',
+      name: 'UploadExcel',
+      component: UploadExcel,
+      beforeEnter: AuthGuard,
     },
   ],
 });

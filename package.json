@@ -14,8 +14,12 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "exceljs": "^0.5.1",
+    "firebase": "^4.3.1",
     "vue": "^2.4.2",
-    "vue-router": "^2.7.0"
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0",
+    "xlsx": "^0.11.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
