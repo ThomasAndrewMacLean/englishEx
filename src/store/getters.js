@@ -1,4 +1,4 @@
-export default{
+export default {
   user(state) {
     return state.user;
   },
@@ -7,5 +7,14 @@ export default{
   },
   navigateToAfterSignin(state) {
     return state.navigateToAfterSignin;
+  },
+  currentEx(state) {
+    return state.currentEx;
+  },
+  currentExById(state) {
+    return state.currentExById;
+  },
+  courses(state) {
+    return state.courses;
   },
 };

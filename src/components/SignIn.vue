@@ -10,7 +10,7 @@
                       v-model="email"
                       type="email"
                       required/>
-                        <input
+                        <input 
                       name="password"
                       label="Password"
                       id="password"

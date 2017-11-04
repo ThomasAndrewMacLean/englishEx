@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import actions from './actions';
@@ -13,6 +14,9 @@ export default new Vuex.Store({
     error: null,
     navigateToAfterSignin: null,
     newEx: null,
+    courses: null,
+    currentEx: null,
+    currentExById: null,
   },
   mutations,
   actions,

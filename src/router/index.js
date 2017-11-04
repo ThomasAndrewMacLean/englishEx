@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/components/Home';
 import SignIn from '@/components/SignIn';
 import UploadExcel from '@/components/UploadExcel';
+import Lesson from '@/components/Lesson';
 import AuthGuard from './auth-guard';
 
 Vue.use(Router);
@@ -24,6 +25,12 @@ export default new Router({
       path: '/UploadExcel',
       name: 'UploadExcel',
       component: UploadExcel,
+      beforeEnter: AuthGuard,
+    },
+    {
+      path: '/Lesson/:LessonNr',
+      name: 'Lesson',
+      component: Lesson,
       beforeEnter: AuthGuard,
     },
   ],

@@ -33,6 +33,7 @@ export default {
       let menuItems = [
         { icon: 'upload', title: 'upload', link:'/UploadExcel'},
         { icon: 'signin', title: 'signin', link:'/SignIn'},
+        { icon: 'lesson', title: 'lesson', link:'/Lesson/1'},
         { icon: 'home', title: 'home', link:'/'}
       ]
       return menuItems;
