@@ -54,16 +54,16 @@ export default {
   uploadToServerUnderCourse({
     commit
   }, payload) {
-    //debugger;
+    debugger;
     var answer = payload.ex;
-    const answers = firebase.database().ref().child('answers');
-    var x = answers.push(answer);
+    const answers = firebase.database().ref().child('answers/' + payload.title);
+    answers.set(answer);
 
-    const ex = firebase.database().ref().child('courses/' + payload.course + '/' + x.key);
+    const ex = firebase.database().ref().child('courses/' + payload.course + '/' + payload.title);
     var temp = payload.ex[1].partB;
     payload.ex[1].partB = payload.ex[0].partB;
     payload.ex[0].partB = temp;
-    var x = ex.set(payload.ex);
+    ex.set(payload.ex);
     commit('clearNewEx', null);
   },
   getLessonById({

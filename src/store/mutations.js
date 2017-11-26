@@ -24,13 +24,13 @@ export default {
     state.currentEx = payload;
   },
   setCourses(state, payload) {
-   // debugger;
+    // debugger;
     state.courses = payload;
   },
   selectLeft(state, payload) {
     // debugger;
     state.currentExById.leftselected = payload;
-    console.log(payload);
+    // console.log(payload);
   },
   setCurrentExById(state, payload) {
     state.currentExById = payload;

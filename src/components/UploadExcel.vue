@@ -6,6 +6,7 @@ Upload EXCEL
 <option disabled value="">Please select one</option>
 <option v-for="c in courses"> {{ c.id }} </option>
 </select>
+<input v-model="titleExercise"/>
 <br/>
 <input type="file" id="inputfile" @change="uploadToClient"/>
 
@@ -14,11 +15,12 @@ Upload EXCEL
 <input type="text" v-model="a.partB">
 <span v-on:click="removeLine(a)">x</span>
 </div>
-
+{{ titleExercise }}
   <br/>
   <button v-on:click="addLine">add line</button>
-  <button v-on:click="uploadToServer">UPLOADTODB</button>
-  <button v-on:click="uploadToServerUnderCourse">TO COURSE</button>
+  <br/>
+ 
+  <button v-on:click="uploadToServerUnderCourse">Upload exercise</button>
 </div>
 </template>
 
@@ -27,7 +29,8 @@ Upload EXCEL
     export default {
       data() {
  return {
-          selectedCourse:''
+          selectedCourse:'',
+          titleExercise:''
         }
       },
     methods: {
@@ -52,15 +55,15 @@ Upload EXCEL
         var inputElement = document.getElementById('inputfile');
         this.$store.dispatch('uploadToClient', {file: inputElement.files[0]})
       },
-      uploadToServer() {
-        this.$store.dispatch('uploadToServer', this.newEx).then(_=> {
-         var inputElement = document.getElementById('inputfile').value = '';
+      // uploadToServer() {
+      //   this.$store.dispatch('uploadToServer', this.newEx).then(_=> {
+      //    var inputElement = document.getElementById('inputfile').value = '';
          
-        });
-      },
+      //   });
+      // },
       uploadToServerUnderCourse(){
         this.$store.dispatch('uploadToServerUnderCourse',
-        {ex: this.newEx, course: this.selectedCourse}).then(_=> {
+        {ex: this.newEx, course: this.selectedCourse, title: this.titleExercise}).then(_=> {
          var inputElement = document.getElementById('inputfile').value = '';
          
         });
