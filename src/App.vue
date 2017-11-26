@@ -33,9 +33,9 @@ export default {
       let menuItems = [
         { icon: 'upload', title: 'upload', link:'/UploadExcel'},
         { icon: 'signin', title: 'signin', link:'/SignIn'},
-        { icon: 'lesson', title: 'lesson', link:'/Lesson/1'},
-        { icon: 'home', title: 'home', link:'/'}
-,        { icon: 'canvas', title: 'canvas', link:'/Canvas'}
+        { icon: 'lesson', title: 'lesson', link:'/Lesson'},
+        { icon: 'home', title: 'home', link:'/'},        
+        { icon: 'canvas', title: 'canvas', link:'/Canvas'}
 
         
       ]
@@ -48,7 +48,7 @@ export default {
 <style>
 h1, h2 {
   font-weight: normal;
-  width:50%;
+  width:200px;
   float:left;
 
 }

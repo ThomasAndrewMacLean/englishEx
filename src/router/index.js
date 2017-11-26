@@ -28,7 +28,13 @@ export default new Router({
     beforeEnter: AuthGuard,
   },
   {
-    path: '/Lesson/:LessonNr',
+    path: '/Lesson/:CourseName',
+    name: 'Lesson',
+    component: Lesson,
+    beforeEnter: AuthGuard,
+  },
+  {
+    path: '/Lesson',
     name: 'Lesson',
     component: Lesson,
     beforeEnter: AuthGuard,

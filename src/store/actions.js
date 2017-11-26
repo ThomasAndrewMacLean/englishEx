@@ -74,10 +74,27 @@ export default {
   getLessonById({
     commit
   }, payload) {
-    firebase.database().ref().child('exercises').child(payload).on('value', (snapshot) => {
+    firebase.database().ref().child('courses').child(payload).on('value', (snapshot) => {
       var x = snapshot.val();
       commit('setCurrentExById', x);
     })
+  },
+  getLessonsByCourse({
+    commit
+  }, payload) {
+    firebase.database().ref().child('courses/' + payload).on('value', (snapshot) => {
+      console.log(snapshot.val());
+      const exs = [];
+      const obj = snapshot.val();
+      // eslint-disable-next-line 
+      for (const key in obj) {
+        exs.push({
+          id: key,
+        });
+      }
+      commit('setCurrentEx', exs);
+    });
+
   },
   getLesson({
     commit
@@ -98,7 +115,7 @@ export default {
     });
   },
 
-  setCourses({
+  getCourses({
     commit
   }, payload) {
     // debugger

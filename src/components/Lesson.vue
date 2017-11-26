@@ -1,11 +1,19 @@
 <template>
 <div>
+
+less
+  <div v-if="!this.$route.params.CourseName">
+  route
+    <div v-for="c in courses" v-on:click="goToCourse('Lesson/' +c.id)">
+      {{c.id}}
+    </div>
+  </div>
+ <div v-if="this.$route.params.CourseName">
   <div v-for="x in lesson">
     <div v-for="xss in x"> 
       <button v-on:click="getEx(xss)">{{ xss }}</button>
     </div>
   </div>
-  <button v-on:click="te">get</button>
 
   <div v-for="x in exbusy">
     <div class="kotteke-wrapper left">
@@ -24,7 +32,7 @@
           
             {{ x[Object.keys(x)[1]] }}
             
-      </div>
+      </div> </div>
     </div>
   </div>
 </div>
@@ -38,11 +46,11 @@
         }
       },
       methods: {
-        te () {
-          this.$store.dispatch('getLesson', this.$route.params.LessonNr);
-        },
+      goToCourse(subPath) {
+        this.$router.push(subPath);
+      },
         getEx (id) {
-          this.$store.dispatch('getLessonById', id);
+          this.$store.dispatch('getLessonById',this.$route.params.CourseName + '/' +  id);
            if (this.$store.getters.currentExById != null){
              this.exbusy = this.$store.getters.currentExById;
            
@@ -58,9 +66,19 @@
           this.$forceUpdate();
         }
       },
+  
       computed: {
+      
+    courses() {
+      // debugger;
+      this.$store.dispatch('getCourses', "blablabb");
+      if(this.$store.getters.courses !== null)
+      console.log(this.$store.getters.courses)
+        return this.$store.getters.courses;
+    },
         lesson() {
-          this.$store.dispatch('getLesson', this.$route.params.LessonNr);
+          // debugger;
+          this.$store.dispatch('getLessonsByCourse', this.$route.params.CourseName);
 
           if (this.$store.getters.currentEx != null)
           return this.$store.getters.currentEx;

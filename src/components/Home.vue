@@ -9,7 +9,7 @@
 LIJST
 <hr/>
 
-  <div v-for="c in courses">
+  <div v-for="c in courses" v-on:click="goToCourse(c.id)">
 {{c.id}}
   </div>
 
@@ -26,6 +26,10 @@ LIJST
 export default {
   name: 'Home',
   methods:{
+    goToCourse(name){
+      this.$router.push('Lesson/' +name);
+
+    },
 addCourse(){
 //  debugger;
   this.$store.dispatch('addCourse', this.nameCourse);
@@ -45,8 +49,9 @@ addCourse(){
   computed:{
     courses() {
       // debugger;
-      this.$store.dispatch('setCourses', "blablabb");
+      this.$store.dispatch('getCourses', "blablabb");
       if(this.$store.getters.courses !== null)
+      console.log(this.$store.getters.courses)
         return this.$store.getters.courses;
     },
   }
