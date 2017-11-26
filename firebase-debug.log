@@ -1,0 +1,86 @@
+[debug] [2017-11-26T21:27:35.052Z] ----------------------------------------------------------------------
+[debug] [2017-11-26T21:27:35.056Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-11-26T21:27:35.057Z] CLI Version:   3.15.2
+[debug] [2017-11-26T21:27:35.057Z] Platform:      darwin
+[debug] [2017-11-26T21:27:35.057Z] Node Version:  v6.11.2
+[debug] [2017-11-26T21:27:35.058Z] Time:          Sun Nov 26 2017 22:27:35 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:35.058Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-26T21:27:35.080Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-26T21:27:35.081Z] > authorizing via signed-in user
+[debug] [2017-11-26T21:27:35.083Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/englishex-7beff  
+ Sun Nov 26 2017 22:27:35 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:35.933Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T21:27:35.935Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/englishex-7beff/tokens  
+ Sun Nov 26 2017 22:27:35 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:36.626Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'englishex-7beff'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2017-11-26T21:27:38.158Z] >>> HTTP REQUEST PUT https://englishex-7beff.firebaseio.com/.settings/rules.json?dryRun=true {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+} 
+ Sun Nov 26 2017 22:27:38 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:38.934Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database englishex-7beff is valid
+[debug] [2017-11-26T21:27:38.937Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/englishex-7beff  
+ Sun Nov 26 2017 22:27:38 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:39.945Z] <<< HTTP RESPONSE 200
+[info] i  storage: checking storage.rules for compilation errors...
+[debug] [2017-11-26T21:27:39.950Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/englishex-7beff:test { source: { files: [ [Object] ] } } 
+ Sun Nov 26 2017 22:27:39 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:40.763Z] <<< HTTP RESPONSE 200
+[info] ✔  storage: rules file storage.rules compiled successfully
+[info] i  firestore: checking firestore.rules for compilation errors...
+[debug] [2017-11-26T21:27:40.770Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/englishex-7beff:test { source: { files: [ [Object] ] } } 
+ Sun Nov 26 2017 22:27:40 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:41.582Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: rules file firestore.rules compiled successfully
+[debug] [2017-11-26T21:27:41.586Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~5.4.0",
+    "firebase-functions": "^0.7.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-11-26T21:27:41.588Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/englishex-7beff?view=CONSUMER_VIEW  
+ Sun Nov 26 2017 22:27:41 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:41.589Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/englishex-7beff?view=CONSUMER_VIEW  
+ Sun Nov 26 2017 22:27:41 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:42.713Z] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-11-26T21:27:42.767Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-11-26T21:27:42.769Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/englishex-7beff  
+ Sun Nov 26 2017 22:27:42 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:42.769Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/englishex-7beff/apiKeys  
+ Sun Nov 26 2017 22:27:42 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:43.735Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T21:27:43.740Z] <<< HTTP RESPONSE 200
+[info] i  storage: uploading rules storage.rules...
+[debug] [2017-11-26T21:27:43.745Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/englishex-7beff/rulesets { source: { files: [ [Object] ] } } 
+ Sun Nov 26 2017 22:27:43 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:44.691Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T21:27:44.692Z] [rules] created ruleset projects/englishex-7beff/rulesets/f8696b3f-683e-4fce-b410-2ad4b669ae6f
+[info] i  firestore: uploading rules firestore.rules...
+[debug] [2017-11-26T21:27:44.695Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/englishex-7beff/rulesets { source: { files: [ [Object] ] } } 
+ Sun Nov 26 2017 22:27:44 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:44.696Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta1/projects/englishex-7beff/databases/(default)/indexes  
+ Sun Nov 26 2017 22:27:44 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:45.577Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T21:27:45.580Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-26T21:27:45.580Z] [rules] created ruleset projects/englishex-7beff/rulesets/fcef343d-2df5-462f-b141-284918f4ff7c
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-11-26T21:27:54.953Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/englishex-7beff/configs  
+ Sun Nov 26 2017 22:27:54 GMT+0100 (CET)
+[debug] [2017-11-26T21:27:55.380Z] <<< HTTP RESPONSE 200
+[info] i  hosting: preparing dist directory for upload...

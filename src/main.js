@@ -12,12 +12,12 @@ new Vue({
   render: h => h(App),
   created() {
     firebase.initializeApp({
-      apiKey: 'AIzaSyDKAgk1WulEHSSaGgkqfsz1pQvwB7sxab4',
-      authDomain: 'englishexwebsite-3cb08.firebaseapp.com',
-      databaseURL: 'https://englishexwebsite-3cb08.firebaseio.com',
-      projectId: 'englishexwebsite-3cb08',
-      storageBucket: 'englishexwebsite-3cb08.appspot.com',
-      messagingSenderId: '56163657944',
+      apiKey: 'AIzaSyC4eDdX57pWZtptJfAy5K4iVEjcGXukjLU',
+      authDomain: 'englishex-7beff.firebaseapp.com',
+      databaseURL: 'https://englishex-7beff.firebaseio.com',
+      projectId: 'englishex-7beff',
+      storageBucket: 'englishex-7beff.appspot.com',
+      messagingSenderId: '885619142553',
     });
   },
 });
