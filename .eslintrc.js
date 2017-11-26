@@ -9,10 +9,14 @@ module.exports = {
   env: {
     browser: true,
   },
+
+
   extends: 'airbnb-base',
-  // required to lint *.vue files
+
+
   plugins: [
-    'html'
+    'html',
+    //  'plugin:vue/essential'
   ],
   // check if imports actually resolve
   'settings': {
@@ -27,7 +31,7 @@ module.exports = {
     "no-param-reassign": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
-  
+
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',

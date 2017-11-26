@@ -27,7 +27,7 @@ export default {
   computed: {
     user() {
       if(this.$store.getters.user !== null)
-      return this.$store.getters.user.displayName;
+      return this.$store.getters.user.email;
     },
     menuItems() {
       let menuItems = [

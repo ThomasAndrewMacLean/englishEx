@@ -24,42 +24,40 @@ LIJST
 
 <script>
 export default {
-  name: 'Home',
-  methods:{
-    goToCourse(name){
-      this.$router.push('Lesson/' +name);
-
+  name: "Home",
+  methods: {
+    goToCourse(name) {
+      this.$router.push("Lesson/" + name);
     },
-addCourse(){
-//  debugger;
-  this.$store.dispatch('addCourse', this.nameCourse);
-  this.nameCourse=null;
-  }
-  },data:{
-
+    addCourse() {
+      //  debugger;
+      this.$store.dispatch("addCourse", this.nameCourse);
+      this.nameCourse = null;
+    }
   },
+  data: {},
   data() {
     return {
-            nameCourse:'',
+      nameCourse: "",
 
-      msg: 'Welcome to Your Vue.js App',
-
+      msg: "Welcome to Your Vue.js App"
     };
   },
-  computed:{
+  computed: {
     courses() {
       // debugger;
-      this.$store.dispatch('getCourses', "blablabb");
-      if(this.$store.getters.courses !== null)
+      this.$store.dispatch("getCourses", "blablabb");
+      if (this.$store.getters.courses !== null)
         return this.$store.getters.courses;
-    },
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

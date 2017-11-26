@@ -29,7 +29,7 @@ export default new Router({
   },
   {
     path: '/Lesson/:CourseName',
-    name: 'Lesson',
+    name: 'LessonCourse',
     component: Lesson,
     beforeEnter: AuthGuard,
   },

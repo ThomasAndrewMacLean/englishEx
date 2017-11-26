@@ -25,16 +25,20 @@
 
 <script>
 export default {
-  name: 'signIn',
+  name: "signIn",
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
   },
-    methods: {
-      signUserIn () {
-        this.$store.dispatch('signUserIn', {email: this.email, password: this.password});
-      },
-}}
+  methods: {
+    signUserIn() {
+      this.$store.dispatch("signUserIn", {
+        email: this.email,
+        password: this.password
+      });
+    }
+  }
+};
 </script>
