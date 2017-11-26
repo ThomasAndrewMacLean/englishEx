@@ -83,7 +83,7 @@ export default {
     commit
   }, payload) {
     firebase.database().ref().child('courses/' + payload).on('value', (snapshot) => {
-      console.log(snapshot.val());
+
       const exs = [];
       const obj = snapshot.val();
       // eslint-disable-next-line 
@@ -101,8 +101,7 @@ export default {
   }, payload) {
     // eslint-disable-next-line
     firebase.database().ref().child('exercises').on('value', (snapshot) => {
-      console.log(payload);
-      console.log(snapshot.val());
+
       const exs = [];
       const obj = snapshot.val();
       // eslint-disable-next-line 
@@ -121,8 +120,7 @@ export default {
     // debugger
     // eslint-disable-next-line
     firebase.database().ref().child('courses').on('value', (snapshot) => {
-      console.log(payload);
-      console.log(snapshot.val());
+
       const exs = [];
       const obj = snapshot.val();
       // eslint-disable-next-line 
@@ -131,7 +129,10 @@ export default {
           id: key,
         });
       }
+     // commit('clearNewEx', null);
+
       commit('setCourses', exs);
+
     });
   },
   addCourse({

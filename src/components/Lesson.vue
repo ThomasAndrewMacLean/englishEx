@@ -1,7 +1,7 @@
 <template>
 <div>
 
-less
+
   <div v-if="!this.$route.params.CourseName">
   route
     <div v-for="c in courses" v-on:click="goToCourse('Lesson/' +c.id)">
@@ -9,12 +9,16 @@ less
     </div>
   </div>
  <div v-if="this.$route.params.CourseName">
-  <div v-for="x in lesson">
-    <div v-for="xss in x"> 
-      <button v-on:click="getEx(xss)">{{ xss }}</button>
+ 
+  <nav class="navEx">
+    <div v-for="x in lesson" >
+      <div v-for="xss in x"> 
+        <button v-on:click="getEx(xss)">{{ xss.split('---')[0] }}</button>
+      </div>
     </div>
-  </div>
+  </nav>
 
+<div class="exWrap">
   <div v-for="x in exbusy">
     <div class="kotteke-wrapper left">
     <div  class="kotteke"   
@@ -34,7 +38,7 @@ less
             
       </div> </div>
     </div>
-  </div>
+  </div>  </div>
 </div>
 </template>
 
@@ -72,8 +76,9 @@ less
     courses() {
       // debugger;
       this.$store.dispatch('getCourses', "blablabb");
+      this.exbusy = null;
+
       if(this.$store.getters.courses !== null)
-      console.log(this.$store.getters.courses)
         return this.$store.getters.courses;
     },
         lesson() {
@@ -93,6 +98,20 @@ less
 
 
 <style>
+
+.navEx{
+  width:99px;
+  float:left;
+  border-right:1px solid grey;
+  height:calc(100vh - 60px);
+}
+
+.exWrap{
+  float:left;
+  width:calc(100vw - 100px);
+  
+}
+
 .kotteke-wrapper{
 width:50%; 
 

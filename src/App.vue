@@ -46,6 +46,10 @@ export default {
 </script>
 
 <style>
+body{
+  margin:0;
+  padding:0;
+}
 h1, h2 {
   font-weight: normal;
   width:200px;
@@ -71,8 +75,9 @@ h3 {
     background: white;
     border: 1px solid #2c3e50;
     width: 100%;
+    height:60px;
     padding-left: 8px;
-    margin-top: -22px;
+    margin-top: -2px;
     margin-left:-9px;
     float:left;
 }

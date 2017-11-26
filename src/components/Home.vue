@@ -51,7 +51,6 @@ addCourse(){
       // debugger;
       this.$store.dispatch('getCourses', "blablabb");
       if(this.$store.getters.courses !== null)
-      console.log(this.$store.getters.courses)
         return this.$store.getters.courses;
     },
   }

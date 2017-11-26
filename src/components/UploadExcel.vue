@@ -77,7 +77,7 @@ Upload EXCEL
         return this.$store.getters.newEx;
     },
     courses() {
-     this.$store.dispatch('setCourses', "blablabb");
+     this.$store.dispatch('getCourses', "blablabb");
       if(this.$store.getters.courses !== null)
         return this.$store.getters.courses;
     },
