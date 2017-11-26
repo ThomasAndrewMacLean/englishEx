@@ -54,15 +54,20 @@ export default {
   uploadToServerUnderCourse({
     commit
   }, payload) {
-    debugger;
-    var answer = payload.ex;
-    const answers = firebase.database().ref().child('answers/' + payload.title);
-    answers.set(answer);
+    const title = payload.title + '---' + Date.now();
 
-    const ex = firebase.database().ref().child('courses/' + payload.course + '/' + payload.title);
-    var temp = payload.ex[1].partB;
-    payload.ex[1].partB = payload.ex[0].partB;
-    payload.ex[0].partB = temp;
+    const answers = firebase.database().ref().child('answers/' + title);
+    answers.set(payload.ex);
+
+    const ex = firebase.database().ref().child('courses/' + payload.course + '/' + title);
+    for (let i = 0; i < payload.ex.length; i++) {
+      const r = Math.floor(Math.random() * (payload.ex.length - 1));
+      var temp = payload.ex[r].partB;
+      payload.ex[r].partB = payload.ex[i].partB;
+      payload.ex[i].partB = temp;
+
+    }
+
     ex.set(payload.ex);
     commit('clearNewEx', null);
   },
