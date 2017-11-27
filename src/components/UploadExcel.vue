@@ -93,6 +93,6 @@ export default {
 
 <style>
 #uploadExWrapper {
-  padding: 75px 15px;
+  
 }
 </style>

@@ -11,7 +11,7 @@
   <nav class="navEx">
     <div v-for="x in lesson" >
      <div v-for="xss in x"> 
-        <button v-on:click="getEx(xss)">{{ xss.split('---')[0] }}</button>
+        <a v-on:click="getEx(xss)">{{ xss.split('---')[0] }}</a>
       </div>
     </div>
   </nav>
@@ -52,6 +52,12 @@ export default {
       this.$router.push(subPath);
     },
     getEx(id) {
+      if (this.$route.params.LessonId) {
+        this.$router.push(id);
+      } else {
+        this.$router.push(this.$route.params.CourseName + "/" + id);
+      }
+
       this.$store.dispatch(
         "getLessonById",
         this.$route.params.CourseName + "/" + id
@@ -84,6 +90,10 @@ export default {
       // debugger;
       this.$store.dispatch("getLessonsByCourse", this.$route.params.CourseName);
 
+      if (this.$route.params.LessonId) {
+        this.getEx(this.$route.params.LessonId);
+      }
+
       if (this.$store.getters.currentEx != null)
         return this.$store.getters.currentEx;
     },
@@ -99,14 +109,20 @@ export default {
 <style>
 .navEx {
   width: 99px;
+  padding-top: 20px;
+  margin-top: -20px;
+  margin-left: -20px;
   float: left;
   border-right: 1px solid grey;
   height: calc(100vh - 60px);
 }
-
+.navEx a:hover {
+  cursor: pointer;
+}
 .exWrap {
   float: left;
-  width: calc(100vw - 100px);
+  padding-left: 40px;
+  width: calc(100vw - 200px);
 }
 
 .kotteke-wrapper {

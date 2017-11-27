@@ -12,6 +12,10 @@ Vue.use(Router);
 export default new Router({
   routes: [{
     path: '/',
+    redirect: '/Home',
+  },
+  {
+    path: '/Home',
     name: 'Home',
     component: Home,
     beforeEnter: AuthGuard,
@@ -25,6 +29,12 @@ export default new Router({
     path: '/UploadExcel',
     name: 'UploadExcel',
     component: UploadExcel,
+    beforeEnter: AuthGuard,
+  },
+  {
+    path: '/Lesson/:CourseName/:LessonId',
+    name: 'LessonCourse',
+    component: Lesson,
     beforeEnter: AuthGuard,
   },
   {
