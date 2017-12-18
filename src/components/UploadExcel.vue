@@ -1,20 +1,34 @@
 <template>
   <div id="uploadExWrapper">
   
+  
+  Add New Course:
+
+<input type="text" v-model="nameCourse"/>
+<button  v-on:click="addCourse()">SUBMIT</button>
+
+  <hr/>
+Choose course to add exercise to:
   <select v-model="selectedCourse">
     <option disabled value="">Please select one</option>
     <option v-for="c in courses"> {{ c.id }} </option>
-  </select>
+  </select><br/>
+  Name off exercise:
     <input v-model="titleExercise" />
     <br/>
-    <input type="file" id="inputfile" @change="uploadToClient" />
-  
+    <br/>
+    <label for="inputfile">
+      Upload file
+      <input type="file" id="inputfile" @change="uploadToClient" style="display:none"/> 
+    </label>
+  <br/>
+    <br/>
     <div v-for="a in newEx">
       <input type="text" v-model="a.partA">
       <input type="text" v-model="a.partB">
       <span v-on:click="removeLine(a)">x</span>
     </div>
-    {{ titleExercise }}
+   
     <br/>
     <button v-on:click="addLine">add line</button>
     <br/>
@@ -29,10 +43,16 @@ export default {
   data() {
     return {
       selectedCourse: "",
-      titleExercise: ""
+      titleExercise: "",
+      nameCourse: ""
     };
   },
   methods: {
+    addCourse() {
+      //  debugger;
+      this.$store.dispatch("addCourse", this.nameCourse);
+      this.nameCourse = null;
+    },
     removeLine(a) {
       var i = 0;
       for (var aa of this.newEx) {
@@ -93,6 +113,9 @@ export default {
 
 <style>
 #uploadExWrapper {
-  
+}
+label {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>

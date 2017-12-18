@@ -9,16 +9,11 @@
 LIJST
 <hr/>
 
-  <div v-for="c in courses" v-on:click="goToCourse(c.id)">
+  <div v-for="c in courses" class="course" v-on:click="goToCourse(c.id)">
 {{c.id}}
   </div>
 
-  <hr/>
-  INPUT
-  <hr/>
 
-<input type="text" v-model="nameCourse"/>
-<button  v-on:click="addCourse()">SUBMIT</button>
 </div>
 </template>
 
@@ -29,16 +24,15 @@ export default {
     goToCourse(name) {
       this.$router.push("Lesson/" + name);
     },
-    addCourse() {
-      //  debugger;
-      this.$store.dispatch("addCourse", this.nameCourse);
-      this.nameCourse = null;
+    
+    test() {
+      return 78;
     }
   },
   data: {},
   data() {
     return {
-      nameCourse: "",
+     
 
       msg: "Welcome to Your Vue.js App"
     };

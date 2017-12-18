@@ -1,13 +1,12 @@
 <template>
 <div>
- <div v-if="!this.$route.params.CourseName">
-  route
-   <div v-for="c in courses" v-on:click="goToCourse('Lesson/' +c.id)">
+  <div v-if="!this.$route.params.CourseName">
+    <div v-for="c in courses" v-on:click="goToCourse('Lesson/' +c.id)">
       {{c.id}}
     </div>
   </div>
- <div v-if="this.$route.params.CourseName">
 
+<div v-if="this.$route.params.CourseName">
   <nav class="navEx">
     <div v-for="x in lesson" >
      <div v-for="xss in x"> 
