@@ -1,5 +1,7 @@
 # englis-ex
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ThomasAndrewMacLean/englishEx.svg)](https://greenkeeper.io/)
+
 > english exercises done online
 
 ## Build Setup
